@@ -22,20 +22,26 @@ import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
 import InboxIcon from "@material-ui/icons/MoveToInbox";
 import MailIcon from "@material-ui/icons/Mail";
+import { createMuiTheme } from "@material-ui/core/styles";
+import { ThemeProvider } from "@material-ui/styles";
 
 function Copyright() {
   return (
     <Typography variant="body2" color="textSecondary" align="center">
-      {"Copyright © "}
+      {""}
       <Link color="inherit" href="https://material-ui.com/">
-        Your Website
+        Our Website
       </Link>{" "}
       {new Date().getFullYear()}
       {"."}
     </Typography>
   );
 }
-
+const theme = createMuiTheme({
+  palette: {
+    type: "dark"
+  }
+});
 const useStyles = makeStyles(theme => ({
   icon: {
     marginRight: theme.spacing(2)
@@ -151,8 +157,8 @@ export default function Album() {
           <Drawer open={state.left} onClose={toggleDrawer("left", false)}>
             {sideList("left")}
           </Drawer>
-          <Typography variant="h6" className={classes.title}>
-            News
+          <Typography variant="h5" className={classes.title}>
+            Our Name
           </Typography>
         </Toolbar>
       </AppBar>
