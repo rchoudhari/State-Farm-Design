@@ -13,6 +13,7 @@ import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
 import Link from "@material-ui/core/Link";
+import { createMuiTheme } from "@material-ui/core/styles";
 
 function Copyright() {
   return (
@@ -27,12 +28,18 @@ function Copyright() {
   );
 }
 
+const darkTheme = createMuiTheme({
+  palette: {
+    type: "dark"
+  }
+});
+
 const useStyles = makeStyles(theme => ({
   icon: {
     marginRight: theme.spacing(2)
   },
   heroContent: {
-    backgroundColor: theme.palette.background.paper,
+    backgroundColor: theme.palette.background.default,
     padding: theme.spacing(8, 0, 6)
   },
   heroButtons: {
@@ -45,7 +52,11 @@ const useStyles = makeStyles(theme => ({
   card: {
     height: "100%",
     display: "flex",
-    flexDirection: "column"
+    flexDirection: "column",
+    background: "#FFFFFF",
+    "&:hover": {
+      background: "#e8e6e4"
+    }
   },
   cardMedia: {
     paddingTop: "56.25%" // 16:9
@@ -121,15 +132,19 @@ export default function Album() {
           <Grid container spacing={4}>
             {cards.map(printing => (
               <Grid item key={printing} xs={12} sm={6} md={4}>
-                <Card className={classes.card} onClick={() => routeTo()}>
+                <Card
+                  className={classes.card}
+                  style={{ cursor: "pointer" }}
+                  onClick={() => routeTo()}
+                >
                   <CardMedia
                     className={classes.cardMedia}
-                    image="https://source.unsplash.com/random"
+                    image="https://i.imgur.com/1YsdrUR.png"
                     title="Image title"
                   />
                   <CardContent className={classes.cardContent}>
                     <Typography gutterBottom variant="h5" component="h2">
-                      Printing
+                      Lesson 1: Printing
                     </Typography>
                     <Typography>
                       This lesson will teach you how to print simple text in
@@ -145,16 +160,17 @@ export default function Album() {
                     >
                       Open lesson
                     </Button>
-                    <Button size="small" color="primary">
-                      Edit
-                    </Button>
                   </CardActions>
                 </Card>
               </Grid>
             ))}
             {cards.map(cards => (
               <Grid item key={cards} xs={12} sm={6} md={4}>
-                <Card className={classes.card} onClick={() => routeTo()}>
+                <Card
+                  className={classes.card}
+                  onClick={() => routeTo()}
+                  style={{ cursor: "pointer" }}
+                >
                   <CardMedia
                     className={classes.cardMedia}
                     image="https://source.unsplash.com/random"
