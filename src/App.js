@@ -22,8 +22,6 @@ import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
 import InboxIcon from "@material-ui/icons/MoveToInbox";
 import MailIcon from "@material-ui/icons/Mail";
-import { createMuiTheme } from "@material-ui/core/styles";
-import { ThemeProvider } from "@material-ui/styles";
 
 function Copyright() {
   return (
@@ -37,11 +35,6 @@ function Copyright() {
     </Typography>
   );
 }
-const theme = createMuiTheme({
-  palette: {
-    type: "dark"
-  }
-});
 const useStyles = makeStyles(theme => ({
   icon: {
     marginRight: theme.spacing(2)
@@ -64,9 +57,8 @@ const useStyles = makeStyles(theme => ({
     height: "100%",
     display: "flex",
     flexDirection: "column",
-    background: "#FFFFFF",
     "&:hover": {
-      background: "#e8e6e4"
+      background: "#778899"
     }
   },
   cardMedia: {
@@ -220,7 +212,7 @@ export default function Album() {
                     </Typography>
                   </CardContent>
                   <CardActions>
-                    <Button size="small" color="primary">
+                    <Button size="small" color="secondary">
                       Open Lesson
                     </Button>
                   </CardActions>
@@ -251,7 +243,7 @@ export default function Album() {
                   <CardActions>
                     <Button
                       size="small"
-                      color="primary"
+                      color="secondary"
                       Link
                       href="https://google.com/"
                     >
@@ -283,7 +275,7 @@ export default function Album() {
                     </Typography>
                   </CardContent>
                   <CardActions>
-                    <Button size="small" color="primary">
+                    <Button size="small" color="secondary">
                       Open Lesson
                     </Button>
                   </CardActions>
@@ -311,7 +303,7 @@ export default function Album() {
                     </Typography>
                   </CardContent>
                   <CardActions>
-                    <Button size="small" color="primary">
+                    <Button size="small" color="secondary">
                       Open Lesson
                     </Button>
                   </CardActions>
@@ -340,7 +332,7 @@ export default function Album() {
                     </Typography>
                   </CardContent>
                   <CardActions>
-                    <Button size="small" color="primary">
+                    <Button size="small" color="secondary">
                       Open Lesson
                     </Button>
                   </CardActions>
