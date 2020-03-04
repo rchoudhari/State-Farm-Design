@@ -25,6 +25,9 @@ import MailIcon from "@material-ui/icons/Mail";
 import { shadows } from "@material-ui/system";
 import { createMuiTheme } from "@material-ui/core/styles";
 import { ThemeProvider } from "@material-ui/styles";
+import FormGroup from '@material-ui/core/FormGroup';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
+import Switch from '@material-ui/core/Switch';
 
 function Copyright() {
   return (
@@ -65,7 +68,7 @@ const useStyles = makeStyles(theme => ({
     height: "100%",
     display: "flex",
     flexDirection: "column",
-    background: "#FFFFFF",
+
     "&:hover": {
       background: "#FFF9F9",
       boxShadow: "0 5px 10px #9AA0B9, 0 15px 40px #A6ADC9"
@@ -76,6 +79,9 @@ const useStyles = makeStyles(theme => ({
   },
   cardContent: {
     flexGrow: 1
+  },
+  title: {
+    flexGrow: 1,
   },
   footer: {
     backgroundColor: theme.palette.background.paper,
@@ -96,7 +102,9 @@ export default function Album() {
     bottom: false,
     right: false
   });
-
+  const handleChange = name => event => {
+    setState({ ...state, [name]: event.target.checked });
+  };
   const button = {
     background: "#2E3B55",
     color: "white"
@@ -162,6 +170,12 @@ export default function Album() {
           <Typography variant="h5" className={classes.title}>
             Our Name
           </Typography>
+          <FormControlLabel
+          value="start"
+          control={<Switch color="primary" />}
+          label="Night Mode"
+          labelPlacement="start"
+          />
         </Toolbar>
       </AppBar>
       <main>
