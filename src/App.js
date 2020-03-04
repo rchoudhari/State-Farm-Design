@@ -47,6 +47,9 @@ const useStyles = makeStyles(theme => ({
   heroButtons: {
     marginTop: theme.spacing(4)
   },
+  button: {
+    background: "#2E3B55"
+  },
   cardGrid: {
     paddingTop: theme.spacing(8),
     paddingBottom: theme.spacing(8)
@@ -86,6 +89,10 @@ export default function Album() {
     right: false
   });
 
+  const button = {
+    background: "#2E3B55",
+    color: "white"
+  };
   const toggleDrawer = (side, open) => event => {
     if (
       event.type === "keydown" &&
@@ -130,7 +137,7 @@ export default function Album() {
   return (
     <React.Fragment>
       <CssBaseline />
-      <AppBar position="static">
+      <AppBar position="static" style={{ background: "#2E3B55" }}>
         <Toolbar>
           <IconButton
             onClick={toggleDrawer("left", true)}
@@ -160,7 +167,7 @@ export default function Album() {
               color="textPrimary"
               gutterBottom
             >
-              Album layout
+              Name
             </Typography>
             <Typography
               variant="h5"
@@ -168,20 +175,14 @@ export default function Album() {
               color="textSecondary"
               paragraph
             >
-              Something short and leading about the collection below—its
-              contents, the creator, etc. Make it short and sweet, but not too
-              short so folks don&apos;t simply skip over it entirely.
+              This is where our description will be. I don't think we should
+              make this part too long or it will take too much of the screen.
             </Typography>
             <div className={classes.heroButtons}>
               <Grid container spacing={2} justify="center">
                 <Grid item>
-                  <Button variant="contained" color="primary">
-                    Main call to action
-                  </Button>
-                </Grid>
-                <Grid item>
-                  <Button variant="outlined" color="primary">
-                    Secondary action
+                  <Button variant="contained" style={button}>
+                    Learn More
                   </Button>
                 </Grid>
               </Grid>
@@ -248,10 +249,7 @@ export default function Album() {
                   </CardContent>
                   <CardActions>
                     <Button size="small" color="primary">
-                      View
-                    </Button>
-                    <Button size="small" color="primary">
-                      Edit
+                      Open Lesson
                     </Button>
                   </CardActions>
                 </Card>
@@ -263,7 +261,7 @@ export default function Album() {
       {/* Footer */}
       <footer className={classes.footer}>
         <Typography variant="h6" align="center" gutterBottom>
-          Footer
+          Our footer
         </Typography>
         <Typography
           variant="subtitle1"
@@ -271,7 +269,7 @@ export default function Album() {
           color="textSecondary"
           component="p"
         >
-          Something here to give the footer a purpose!
+          Created using Material-UI: A popular React UI framework
         </Typography>
         <Copyright />
       </footer>
