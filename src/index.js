@@ -18,10 +18,7 @@ const themeX = createMuiTheme({
 const rootElement = document.getElementById("root");
 ReactDOM.render(
   <React.StrictMode>
-    <MuiThemeProvider theme={themeX}>
-      <App />
-    </MuiThemeProvider>
-    ,
+    <App />
   </React.StrictMode>,
   rootElement
 );
