@@ -67,7 +67,7 @@ const useStyles = makeStyles(theme => ({
     flexDirection: "column",
     background: "#FFFFFF",
     "&:hover": {
-      background: "#e8e6e4",
+      background: "#FFF9F9",
       boxShadow: "0 5px 10px #9AA0B9, 0 15px 40px #A6ADC9"
     }
   },
