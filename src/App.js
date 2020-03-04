@@ -192,6 +192,35 @@ export default function Album() {
         <Container className={classes.cardGrid} maxWidth="md">
           {/* End hero unit */}
           <Grid container spacing={4}>
+            {cards.map(cards => (
+              <Grid item key={cards} xs={12} sm={6} md={4}>
+                <Card
+                  className={classes.card}
+                  onClick={() => routeTo()}
+                  style={{ cursor: "pointer" }}
+                >
+                  <CardMedia
+                    className={classes.cardMedia}
+                    image="https://i.imgur.com/Wv0XRqB.png"
+                    title="Getting Started"
+                  />
+                  <CardContent className={classes.cardContent}>
+                    <Typography gutterBottom variant="h5" component="h2">
+                      Getting Started
+                    </Typography>
+                    <Typography>
+                      What do you need to do to get started with coding in Java
+                      at home?
+                    </Typography>
+                  </CardContent>
+                  <CardActions>
+                    <Button size="small" color="primary">
+                      Open Lesson
+                    </Button>
+                  </CardActions>
+                </Card>
+              </Grid>
+            ))}
             {cards.map(printing => (
               <Grid item key={printing} xs={12} sm={6} md={4}>
                 <Card
@@ -202,7 +231,7 @@ export default function Album() {
                   <CardMedia
                     className={classes.cardMedia}
                     image="https://i.imgur.com/1YsdrUR.png"
-                    title="Image title"
+                    title="Printing"
                   />
                   <CardContent className={classes.cardContent}>
                     <Typography gutterBottom variant="h5" component="h2">
@@ -235,16 +264,73 @@ export default function Album() {
                 >
                   <CardMedia
                     className={classes.cardMedia}
-                    image="https://source.unsplash.com/random"
-                    title="Image title"
+                    image="https://i.imgur.com/gJg6k3L.png"
+                    title="Primitive Types"
                   />
                   <CardContent className={classes.cardContent}>
                     <Typography gutterBottom variant="h5" component="h2">
-                      Heading
+                      Lesson 2: Primitive Types
                     </Typography>
                     <Typography>
-                      This is a media ccard. You can use this section to
-                      describe the content.
+                      This lesson will teach you about primitive types and how
+                      they are used in Java.
+                    </Typography>
+                  </CardContent>
+                  <CardActions>
+                    <Button size="small" color="primary">
+                      Open Lesson
+                    </Button>
+                  </CardActions>
+                </Card>
+              </Grid>
+            ))}
+            {cards.map(cards => (
+              <Grid item key={cards} xs={12} sm={6} md={4}>
+                <Card
+                  className={classes.card}
+                  onClick={() => routeTo()}
+                  style={{ cursor: "pointer" }}
+                >
+                  <CardMedia
+                    className={classes.cardMedia}
+                    image="https://i.imgur.com/9dLlxgq.png"
+                    title="Loops"
+                  />
+                  <CardContent className={classes.cardContent}>
+                    <Typography gutterBottom variant="h5" component="h2">
+                      Lesson 3: Loops
+                    </Typography>
+                    <Typography>
+                      This lesson will teach you how to use loops in Java.
+                    </Typography>
+                  </CardContent>
+                  <CardActions>
+                    <Button size="small" color="primary">
+                      Open Lesson
+                    </Button>
+                  </CardActions>
+                </Card>
+              </Grid>
+            ))}
+            {cards.map(cards => (
+              <Grid item key={cards} xs={12} sm={6} md={4}>
+                <Card
+                  className={classes.card}
+                  onClick={() => routeTo()}
+                  style={{ cursor: "pointer" }}
+                >
+                  <CardMedia
+                    className={classes.cardMedia}
+                    image="https://i.imgur.com/1RQ7DGI.png"
+                    title="Review Games"
+                  />
+                  <CardContent className={classes.cardContent}>
+                    <Typography gutterBottom variant="h5" component="h2">
+                      Lesson 4: Review Games
+                    </Typography>
+                    <Typography>
+                      This lesson will help you create fun games using the
+                      knowledge you have learned in previous lessons.
                     </Typography>
                   </CardContent>
                   <CardActions>
