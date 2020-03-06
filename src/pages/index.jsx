@@ -41,11 +41,6 @@ function Copyright() {
     </Typography>
   );
 }
-const theme = createMuiTheme({
-  palette: {
-    type: "dark"
-  }
-});
 const useStyles = makeStyles(theme => ({
   icon: {
     marginRight: theme.spacing(2)
@@ -169,7 +164,7 @@ export default function Album() {
           </Drawer>
           <Typography variant="h5" className={classes.title}>
             <Link href="/" onClick={preventDefault} color="inherit">
-              {'Our name'}
+              {"Our name"}
             </Link>
           </Typography>
           <FormControlLabel
@@ -220,7 +215,7 @@ export default function Album() {
               <Grid item key={cards} xs={12} sm={6} md={4}>
                 <Card
                   className={classes.card}
-                  onClick={() => window.location.href='/gettingstarted'}
+                  onClick={() => (window.location.href = "/gettingstarted")}
                   style={{ cursor: "pointer" }}
                 >
                   <CardMedia
@@ -250,7 +245,7 @@ export default function Album() {
                 <Card
                   className={classes.card}
                   style={{ cursor: "pointer" }}
-                  onClick={() => routeTo()}
+                  onClick={() => (window.location.href = "/printing")}
                 >
                   <CardMedia
                     className={classes.cardMedia}
