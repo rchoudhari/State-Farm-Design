@@ -1,33 +1,20 @@
 import React from "react";
 import AppBar from "@material-ui/core/AppBar";
-import Button from "@material-ui/core/Button";
-import IconButton from "@material-ui/core/IconButton";
-import MenuIcon from "@material-ui/icons/Menu";
-import Card from "@material-ui/core/Card";
-import CardActions from "@material-ui/core/CardActions";
-import CardContent from "@material-ui/core/CardContent";
-import CardMedia from "@material-ui/core/CardMedia";
+import GitHubIcon from "@material-ui/icons/GitHub";
+import FacebookIcon from "@material-ui/icons/Facebook";
+import TwitterIcon from "@material-ui/icons/Twitter";
 import CssBaseline from "@material-ui/core/CssBaseline";
-import Drawer from "@material-ui/core/Drawer";
 import Grid from "@material-ui/core/Grid";
 import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
 import Link from "@material-ui/core/Link";
-import List from "@material-ui/core/List";
-import Divider from "@material-ui/core/Divider";
-import ListItem from "@material-ui/core/ListItem";
-import ListItemIcon from "@material-ui/core/ListItemIcon";
-import ListItemText from "@material-ui/core/ListItemText";
-import InboxIcon from "@material-ui/icons/MoveToInbox";
-import MailIcon from "@material-ui/icons/Mail";
-import { shadows } from "@material-ui/system";
-import { createMuiTheme } from "@material-ui/core/styles";
-import { ThemeProvider } from "@material-ui/styles";
-import FormGroup from "@material-ui/core/FormGroup";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import Switch from "@material-ui/core/Switch";
+import post1 from "./printing.md";
+import Main from "./Main";
+import Sidebar from "./Sidebar";
 
 function Copyright() {
   return (
@@ -41,11 +28,6 @@ function Copyright() {
     </Typography>
   );
 }
-const theme = createMuiTheme({
-  palette: {
-    type: "dark"
-  }
-});
 const useStyles = makeStyles(theme => ({
   icon: {
     marginRight: theme.spacing(2)
@@ -64,21 +46,8 @@ const useStyles = makeStyles(theme => ({
     paddingTop: theme.spacing(8),
     paddingBottom: theme.spacing(8)
   },
-  card: {
-    height: "100%",
-    display: "flex",
-    flexDirection: "column",
-
-    "&:hover": {
-      background: "#FFF9F9",
-      boxShadow: "0 5px 10px #9AA0B9, 0 15px 40px #A6ADC9"
-    }
-  },
-  cardMedia: {
-    paddingTop: "56.25%" // 16:9
-  },
-  cardContent: {
-    flexGrow: 1
+  mainGrid: {
+    marginTop: theme.spacing(3)
   },
   title: {
     flexGrow: 1
@@ -89,127 +58,59 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-const cards = [1];
+const sidebar = {
+  title: "About",
+  description:
+    "CodingMouse is a website created by NCHS students with the goal of",
+  archives: [
+    { title: "Getting Started", url: "#" },
+    { title: "Lesson 1: Printing", url: "#" },
+    { title: "Lesson 2: Primitive Types", url: "#" },
+    { title: "Lesson 3: Loops", url: "#" },
+    { title: "Lesson 4: Review Games", url: "#" }
+  ],
+  social: [
+    { name: "GitHub", icon: GitHubIcon },
+    { name: "Twitter", icon: TwitterIcon },
+    { name: "Facebook", icon: FacebookIcon }
+  ]
+};
+
+const posts = [post1];
 
 export function routeTo() {
   window.open("http://www.google.com"); //This will open Google in a new
 }
 export default function Album() {
-  const preventDefault = event => event.preventDefault();
   const classes = useStyles();
-  const [state, setState] = React.useState({
-    top: false,
-    left: false,
-    bottom: false,
-    right: false
-  });
-  const handleChange = name => event => {
-    setState({ ...state, [name]: event.target.checked });
-  };
-  const button = {
-    background: "#2E3B55",
-    color: "white"
-  };
-  const toggleDrawer = (side, open) => event => {
-    if (
-      event.type === "keydown" &&
-      (event.key === "Tab" || event.key === "Shift")
-    ) {
-      return;
-    }
-
-    setState({ ...state, [side]: open });
-  };
-  const sideList = side => (
-    <div
-      className={classes.list}
-      role="presentation"
-      onClick={toggleDrawer(side, false)}
-      onKeyDown={toggleDrawer(side, false)}
-    >
-      <List>
-        {["Inbox", "Starred", "Send email", "Drafts"].map((text, index) => (
-          <ListItem button key={text}>
-            <ListItemIcon>
-              {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-            </ListItemIcon>
-            <ListItemText primary={text} />
-          </ListItem>
-        ))}
-      </List>
-      <Divider />
-      <List>
-        {["All mail", "Trash", "Spam"].map((text, index) => (
-          <ListItem button key={text}>
-            <ListItemIcon>
-              {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-            </ListItemIcon>
-            <ListItemText primary={text} />
-          </ListItem>
-        ))}
-      </List>
-    </div>
-  );
 
   return (
     <React.Fragment>
       <CssBaseline />
-      <AppBar position="static" style={{ background: "#2E3B55" }}>
-        <Toolbar>
-          <IconButton
-            onClick={toggleDrawer("left", true)}
-            edge="start"
-            className={classes.menuButton}
-            color="inherit"
-            aria-label="menu"
-          >
-            <MenuIcon />
-          </IconButton>
-          <Drawer open={state.left} onClose={toggleDrawer("left", false)}>
-            {sideList("left")}
-          </Drawer>
+      <AppBar position="static" style={{ background: "#0c2340" }}>
+        <Toolbar variant="dense">
           <Typography variant="h5" className={classes.title}>
             <Link href="/" color="inherit">
-              {"Our Name"}
+              {"CodingMouse"}
             </Link>
           </Typography>
-          <FormControlLabel
-            value="start"
-            control={<Switch color="primary" />}
-            label="Night Mode"
-            labelPlacement="start"
-          />
         </Toolbar>
       </AppBar>
       <main>
         {/* Hero unit */}
-        <div className={classes.heroContent}>
-          <Container maxWidth="sm">
-            <Typography
-              component="h1"
-              variant="h2"
-              align="center"
-              color="textPrimary"
-              gutterBottom
-            >
-              Printing
-            </Typography>
-            <Typography
-              variant="h5"
-              align="center"
-              color="textSecondary"
-              paragraph
-            >
-              This is where our description will be. I don't think we should
-              make this part too long or it will take too much of the screen.
-            </Typography>
-          </Container>
-        </div>
-        <Container className={classes.cardGrid} maxWidth="md">
-          {/* End hero unit */}
-          <Grid container spacing={4} />
+        <Container maxWidth="lg">
+          <Grid container spacing={5} className={classes.mainGrid}>
+            <Main title="" posts={posts} />
+            <Sidebar
+              title={sidebar.title}
+              description={sidebar.description}
+              archives={sidebar.archives}
+              social={sidebar.social}
+            />
+          </Grid>
         </Container>
       </main>
+
       {/* Footer */}
       <footer className={classes.footer}>
         <Typography variant="h6" align="center" gutterBottom>
