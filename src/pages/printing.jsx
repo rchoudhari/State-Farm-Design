@@ -15,6 +15,8 @@ import Switch from "@material-ui/core/Switch";
 import post1 from "./printing.md";
 import Main from "./Main";
 import Sidebar from "./Sidebar";
+import MouseOutlinedIcon from '@material-ui/icons/MouseOutlined';
+import Button from '@material-ui/core/Button';
 
 function Copyright() {
   return (
@@ -50,7 +52,16 @@ const useStyles = makeStyles(theme => ({
     marginTop: theme.spacing(3)
   },
   title: {
-    flexGrow: 1
+    marginRight: theme.spacing(5),
+  },
+  link: {
+    fontWeight: '600',
+    color: "#CECECE",
+    marginRight: theme.spacing(2),
+    "&:hover": {
+      color: "inherit",
+      background: "inherit"
+    }
   },
   footer: {
     backgroundColor: theme.palette.background.paper,
@@ -87,18 +98,27 @@ export default function Album() {
   return (
     <React.Fragment>
       <CssBaseline />
-      <AppBar position="static" style={{ background: "#0c2340" }}>
-        <Toolbar variant="dense">
-          <Typography variant="h5" className={classes.title}>
-            <Link href="/" color="inherit">
-              {"CodingMouse"}
-            </Link>
-          </Typography>
-        </Toolbar>
+      <AppBar position="static" style={{ background: "#384069" }}>
+      <Container maxWidth="md" >
+          <Toolbar >
+          <Grid container spacing={10}>
+            <Typography variant="h5" className={classes.title}>
+              <Link href="/" color="inherit" style={{ textDecoration: 'none' }}>
+                {"CodingMouse"}
+              </Link>
+            </Typography>
+            <Button className={classes.link}>About Us</Button>
+            <Button className={classes.link}>Login</Button>
+
+          </Grid>
+          </Toolbar>
+       
+      </Container>
       </AppBar>
       <main>
         {/* Hero unit */}
-        <Container maxWidth="lg">
+        <Container style={{backgroundColor: "#FFFFFF"}} maxWidth="md">
+        <Container maxWidth="md">
           <Grid container spacing={5} className={classes.mainGrid}>
             <Main title="" posts={posts} />
             <Sidebar
@@ -108,6 +128,7 @@ export default function Album() {
               social={sidebar.social}
             />
           </Grid>
+        </Container>
         </Container>
       </main>
 

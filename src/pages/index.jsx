@@ -22,12 +22,7 @@ import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
 import InboxIcon from "@material-ui/icons/MoveToInbox";
 import MailIcon from "@material-ui/icons/Mail";
-import { shadows } from "@material-ui/system";
-import { createMuiTheme } from "@material-ui/core/styles";
-import { ThemeProvider } from "@material-ui/styles";
-import FormGroup from "@material-ui/core/FormGroup";
-import FormControlLabel from "@material-ui/core/FormControlLabel";
-import Switch from "@material-ui/core/Switch";
+import Particles from 'react-particles-js';
 
 function Copyright() {
   return (
@@ -46,8 +41,8 @@ const useStyles = makeStyles(theme => ({
     marginRight: theme.spacing(2)
   },
   heroContent: {
-    backgroundColor: theme.palette.background.default,
-    padding: theme.spacing(8, 0, 6)
+    padding: theme.spacing(8, 0, 6),
+    color: "white"
   },
   heroButtons: {
     marginTop: theme.spacing(4)
@@ -58,6 +53,18 @@ const useStyles = makeStyles(theme => ({
   cardGrid: {
     paddingTop: theme.spacing(8),
     paddingBottom: theme.spacing(8)
+  },
+  title: {
+    marginRight: theme.spacing(5),
+  },
+  link: {
+    fontWeight: '600',
+    color: "#CECECE",
+    marginRight: theme.spacing(2),
+    "&:hover": {
+      color: "inherit",
+      background: "inherit"
+    }
   },
   card: {
     height: "100%",
@@ -84,6 +91,15 @@ const useStyles = makeStyles(theme => ({
 }));
 
 const cards = [1];
+
+const mainFeaturedPost = {
+  title: 'Title of a longer featured blog post',
+  description:
+    "Multiple lines of text that form the lede, informing new readers quickly and efficiently about what's most interesting in this post's contents.",
+  image: 'https://source.unsplash.com/random',
+  imgText: 'main image description',
+  linkText: 'Continue reading…',
+};
 
 export function routeTo() {
   window.open("http://www.google.com"); //This will open Google in a new
@@ -149,31 +165,21 @@ export default function Album() {
     <React.Fragment>
       <CssBaseline />
       <AppBar position="static" style={{ background: "#2E3B55" }}>
-        <Toolbar>
-          <IconButton
-            onClick={toggleDrawer("left", true)}
-            edge="start"
-            className={classes.menuButton}
-            color="inherit"
-            aria-label="menu"
-          >
-            <MenuIcon />
-          </IconButton>
-          <Drawer open={state.left} onClose={toggleDrawer("left", false)}>
-            {sideList("left")}
-          </Drawer>
-          <Typography variant="h5" className={classes.title}>
-            <Link href="/" onClick={preventDefault} color="inherit">
-              {"Our name"}
-            </Link>
-          </Typography>
-          <FormControlLabel
-            value="start"
-            control={<Switch color="primary" />}
-            label="Night Mode"
-            labelPlacement="start"
-          />
-        </Toolbar>
+      <Container maxWidth="md">
+          <Toolbar >
+          <Grid container spacing={10}>
+            <Typography variant="h5" className={classes.title}>
+              <Link href="/" color="inherit" style={{ textDecoration: 'none' }}>
+                {"CodingMouse"}
+              </Link>
+            </Typography>
+            <Button className={classes.link}>About Us</Button>
+            <Button className={classes.link}>Login</Button>
+
+          </Grid>
+          </Toolbar>
+       
+      </Container>
       </AppBar>
       <main>
         {/* Hero unit */}
@@ -183,7 +189,7 @@ export default function Album() {
               component="h1"
               variant="h2"
               align="center"
-              color="textPrimary"
+              color="white"
               gutterBottom
             >
               Name
@@ -191,7 +197,7 @@ export default function Album() {
             <Typography
               variant="h5"
               align="center"
-              color="textSecondary"
+              color="white"
               paragraph
             >
               This is where our description will be. I don't think we should

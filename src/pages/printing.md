@@ -2,7 +2,15 @@
 
 #### March 7, 2020 by [Armaandeep Gill](/)
 
-Printing
+<div align="center">
+  <iframe width="560" height="315"
+  src="https://www.youtube.com/embed/MUQfKFzIOeU" 
+  frameborder="0" 
+  allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
+  allowfullscreen></iframe>
+</div>     
+
+## What Is Printing?
 
 Printing is one of the easiests things to program into your code. Printing is programing your code to give you an output when you run it. This may sound complicated but it's as easy as writing out words, sentances, or numbers and putting (" "); around it and a print meathod before the first perenthacy. In Java the Syntax for this is System.out.print(" "); or System.out.println(" ");. If you want to print out any variable that was already defined you don't quotes so it will be System.out.println( ); instead.
 
