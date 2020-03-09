@@ -1,4 +1,4 @@
-# Printing
+# Lesson 1: Printing
 
 #### March 7, 2020 by [Armaandeep Gill](/)
 

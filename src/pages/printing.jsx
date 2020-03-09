@@ -15,12 +15,12 @@ import Switch from "@material-ui/core/Switch";
 import post1 from "./printing.md";
 import Main from "./Main";
 import Sidebar from "./Sidebar";
-import MouseOutlinedIcon from '@material-ui/icons/MouseOutlined';
-import Button from '@material-ui/core/Button';
+import MouseOutlinedIcon from "@material-ui/icons/MouseOutlined";
+import Button from "@material-ui/core/Button";
 
 function Copyright() {
   return (
-    <Typography variant="body2" color="textSecondary" align="center">
+    <Typography variant="body2" color="white" align="center">
       {""}
       <Link color="inherit" href="https://material-ui.com/">
         Our Website
@@ -52,20 +52,30 @@ const useStyles = makeStyles(theme => ({
     marginTop: theme.spacing(3)
   },
   title: {
-    marginRight: theme.spacing(5),
+    marginRight: theme.spacing(5)
+  },
+  box: {
+    boxShadow: "0 5px 10px #000000, 0 15px 40px #000000",
+    borderTopLeftRadius: 4,
+    borderBottomLeftRadius: 4,
+    borderBottomRightRadius: 4,
+    borderTopRightRadius: 4
   },
   link: {
-    fontWeight: '600',
+    fontWeight: "600",
     color: "#CECECE",
     marginRight: theme.spacing(2),
+
     "&:hover": {
       color: "inherit",
       background: "inherit"
     }
   },
   footer: {
-    backgroundColor: theme.palette.background.paper,
-    padding: theme.spacing(6)
+    backgroundColor: "#2E3B55",
+    padding: theme.spacing(6),
+    color: "white",
+    paddingTop: 10
   }
 }));
 
@@ -98,41 +108,50 @@ export default function Album() {
   return (
     <React.Fragment>
       <CssBaseline />
-      <AppBar position="static" style={{ background: "#384069" }}>
-      <Container maxWidth="md" >
-          <Toolbar >
-          <Grid container spacing={10}>
-            <Typography variant="h5" className={classes.title}>
-              <Link href="/" color="inherit" style={{ textDecoration: 'none' }}>
-                {"CodingMouse"}
-              </Link>
-            </Typography>
-            <Button className={classes.link}>About Us</Button>
-            <Button className={classes.link}>Login</Button>
-
-          </Grid>
+      <AppBar position="static" style={{ background: "#2E3B55" }}>
+        <Container maxWidth="md">
+          <Toolbar>
+            <Grid container spacing={10}>
+              <Typography variant="h5" className={classes.title}>
+                <Link
+                  href="/"
+                  color="inherit"
+                  style={{ textDecoration: "none" }}
+                >
+                  {"CodingMouse"}
+                </Link>
+              </Typography>
+              <Button className={classes.link}>Lessons</Button>
+              <Button className={classes.link}>About Us</Button>
+              <Button className={classes.link}>More Info</Button>
+            </Grid>
           </Toolbar>
-       
-      </Container>
+        </Container>
       </AppBar>
       <main>
         {/* Hero unit */}
-        <Container style={{backgroundColor: "#FFFFFF"}} maxWidth="md">
-        <Container maxWidth="md">
-          <Grid container spacing={5} className={classes.mainGrid}>
-            <Main title="" posts={posts} />
-            <Sidebar
-              title={sidebar.title}
-              description={sidebar.description}
-              archives={sidebar.archives}
-              social={sidebar.social}
-            />
-          </Grid>
+        <Container
+          className={classes.box}
+          style={{ backgroundColor: "#FFFFFF" }}
+          maxWidth="md"
+        >
+          <Container maxWidth="lg">
+            <Grid container spacing={5} className={classes.mainGrid}>
+              <Main title="" posts={posts} />
+              <Sidebar
+                title={sidebar.title}
+                description={sidebar.description}
+                archives={sidebar.archives}
+                social={sidebar.social}
+              />
+            </Grid>
+          </Container>
         </Container>
-        </Container>
+        <Container style={{ paddingBottom: 50 }} maxWidth="md" />
       </main>
 
       {/* Footer */}
+
       <footer className={classes.footer}>
         <Typography variant="h6" align="center" gutterBottom>
           Our footer
@@ -140,7 +159,7 @@ export default function Album() {
         <Typography
           variant="subtitle1"
           align="center"
-          color="textSecondary"
+          color="white"
           component="p"
         >
           Created using Material-UI: A popular React UI framework

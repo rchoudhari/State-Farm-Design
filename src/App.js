@@ -17,24 +17,23 @@ class App extends Component {
   render() {
     return (
       <Router>
-      <div
-        style={{
-          position: "absolute",
-          top: 0,
-          left: 0,
-          width: "100%",
-          height: "100%"
-        }}
-      >
-        <ParticleComponent />
         <div
+          style={{
+            position: "absolute",
+            top: 0,
+            left: 0,
+            width: "100%",
+            height: "100%",
+            zIndex: -999
+          }}
         >
-          <Route exact path="/" component={MainPage} />
-          <Route exact path="/gettingstarted" component={gettingstarted} />
-          <Route exact path="/printing" component={printing} />
+          <ParticleComponent />
+          <div>
+            <Route exact path="/" component={MainPage} />
+            <Route exact path="/gettingstarted" component={gettingstarted} />
+            <Route exact path="/printing" component={printing} />
+          </div>
         </div>
-      </div>
-
       </Router>
     );
   }
